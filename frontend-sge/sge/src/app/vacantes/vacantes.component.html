@@ -1,0 +1,80 @@
+<div class="vacantes-container" style="padding: 20px;">
+
+
+  <div class="filters" style="display: flex; gap: 10px; margin-bottom: 15px;">
+    <mat-form-field appearance="outline">
+      <mat-label>Entidad</mat-label>
+      <input matInput [formControl]="entidadFilter" placeholder="entidad">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ciclo</mat-label>
+      <input matInput [formControl]="cicloFilter" placeholder="ciclo">
+    </mat-form-field>
+  </div>
+
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+
+    <ng-container matColumnDef="id_vacante">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let vacante">{{ vacante.id_vacante }}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="entidad">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Entidad</th>
+      <td mat-cell *matCellDef="let vacante">{{ vacante.entidadNombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ciclo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ciclo </th>
+      <td mat-cell *matCellDef="let vacante"> {{ vacante.cicloNombre }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="curso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Curso </th>
+      <td mat-cell *matCellDef="let vacante"> {{ vacante.Curso }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="num_vacantes">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Vacantes </th>
+      <td mat-cell *matCellDef="let vacante"> {{ vacante.Num_vacantes }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="num_alumnos">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Alumnos </th>
+      <td mat-cell *matCellDef="let vacante"> {{ vacante.Num_alumnos }} </td>
+    </ng-container>
+
+
+
+
+
+    <!-- Actions -->
+     <ng-container matColumnDef="actions" >
+        <th mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button (click)="addVacante()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let vacante">
+          <button mat-icon-button color="primary" (click)="editVacante(vacante)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteVacante(vacante)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+     </ng-container>
+
+
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+</div>

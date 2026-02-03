@@ -1,0 +1,32 @@
+.container {
+    margin: 0 auto;
+    min-width: 30em;
+    max-width: 40em;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.form {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+div.mat-dialog-actions {
+    width: 100%;
+    margin: auto;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.radioButton {
+    text-align: left;
+    margin-bottom: 1em;
+    padding-left: 0.2em;
+}

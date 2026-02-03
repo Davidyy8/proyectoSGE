@@ -1,0 +1,34 @@
+<div class="container">
+  <h3 mat-dialog-title>
+    ¿Seguro que deseas eliminar este {{ ALUMNO }}?
+  </h3>
+
+  <div mat-dialog-content>
+    <p>
+      <strong>ID:</strong> {{ alumno.id_alumno }}
+    </p>
+
+    <p>
+      <strong>{{ ALUMNO }}:</strong>
+      {{ alumno.Nombre }} {{ alumno.Apellidos }}
+    </p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button
+      mat-button
+      color="warn"
+      id="deleteAlumno"
+      (click)="confirmDelete()">
+      Eliminar {{ ALUMNO }}
+    </button>
+
+    <button
+      mat-button
+      id="onNoClick"
+      (click)="onNoClick()"
+      tabindex="-1">
+      Cancelar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+  <h3 mat-dialog-title> Añadir {{ VACANTE }}</h3>
+
+  <form class="mat-dialog-content" [formGroup]="vacanteForm">
+    <div class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Entidad</mat-label>
+        <mat-select formControlName="Entidad">
+          <mat-option value=""> Sin entidad </mat-option>
+          <mat-option *ngFor="let e of entidades" [value]="e.id_entidad">
+            {{ e.entidad }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Ciclo</mat-label>
+        <mat-select formControlName="Ciclo">
+          <mat-option value=""> Sin ciclo </mat-option>
+          <mat-option *ngFor="let c of ciclos" [value]="c.id_ciclo">
+            {{ c.ciclo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Curso</mat-label>
+        <input matInput type="number" formControlName="Curso">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Numero Vacantes</mat-label>
+        <input matInput type="number" formControlName="Num_vacantes">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Numero Alumnos</mat-label>
+        <input matInput type="number" formControlName="Num_alumnos">
+      </mat-form-field>
+    </div>
+
+
+    <div mat-dialog-actions>
+      <button
+        mat-button
+        type="submit"
+        [disabled]="!vacanteForm.valid"
+        (click)="confirmAdd()">
+        Guardar
+      </button>
+
+      <button
+      mat-button
+      (click)="onNoclick()"
+      tabindex="-1">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
